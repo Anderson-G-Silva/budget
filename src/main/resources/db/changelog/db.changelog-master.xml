@@ -1,0 +1,11 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <include file="db/changelog/changes/202608311445_create-table-user.xml"/>
+    <include file="db/changelog/changes/202608311450_create-table-transaction.xml"/>
+    <include file="db/changelog/changes/202608311455_create-add-foreignkey.xml"/>
+
+</databaseChangeLog>
