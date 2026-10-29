@@ -1,5 +1,5 @@
-## Santander Dev Week 2025
-Desenvolvimento de aplicação (backend) para controle de orçamento pessoal, utilizando AI para caputurar mensagens de voz gravadas pelo usuário da aplicação via interface RestFull, analisar os dados transcritos, persistir em banco de dados, finalizando com uma mensagem ao usuário de confirmação da transação com informações sobre o registro.
+## Controle de orçamento pessoal utilizando IA
+Desenvolvimento de aplicação (backend) para controle de orçamento pessoal, utilizando IA para caputurar mensagens de voz gravadas pelo usuário da aplicação via interface RestFull para analisar os dados transcritos, persistir em banco de dados, finalizando com uma mensagem ao usuário de confirmação da transação com informações sobre o registro.
 
 ## Diagrama de classes
 
@@ -83,7 +83,7 @@ graph TD
 ## Referências
 
 - [DIO - dio-spring-boot-learning-track
-  /05-spring-ai]([https://github.com/digitalinnovationone/santander-dev-week-2023-api](https://github.com/thpoiani/dio-spring-boot-learning-track/tree/main/05-spring-ai))
+  /05-spring-ai](https://github.com/thpoiani/dio-spring-boot-learning-track/tree/main/05-spring-ai)
 
 
 ## Autores

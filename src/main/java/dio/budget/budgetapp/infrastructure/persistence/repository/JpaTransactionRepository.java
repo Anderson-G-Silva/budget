@@ -2,13 +2,18 @@ package dio.budget.budgetapp.infrastructure.persistence.repository;
 
 import dio.budget.auth.infrastructure.security.AuthenticatedUserProvider;
 import dio.budget.budgetapp.domain.Category;
-import dio.budget.util.mapper.MapperTransaction;
+import dio.budget.budgetapp.domain.PaymentBrand;
+import dio.budget.budgetapp.domain.PaymentMethod;
+import dio.budget.budgetapp.domain.Subcategory;
 import dio.budget.budgetapp.domain.Transaction;
 import dio.budget.budgetapp.domain.TransactionRepository;
 import dio.budget.budgetapp.infrastructure.http.response.ListByCategory;
 import dio.budget.budgetapp.infrastructure.persistence.entity.TransactionEntity;
+import dio.budget.util.mapper.MapperTransaction;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,11 +45,12 @@ public class JpaTransactionRepository implements TransactionRepository {
     public List<Transaction> findByUserId() {
         UUID userId = authenticatedUserProvider.getCurrentUserId();
         return transactionEntityRepository.findByUserId(userId).stream().map(mapper::entityToModel).toList();
+
     }
 
     @Override
     public List<Transaction> findAll() {
-        //var iterable = transactionEntityRepository.findAll().stream(iterable.spliterator(), false).toList();
+
         return transactionEntityRepository.findAll().stream().map(mapperTransaction::entityToModel).toList();
     }
 
@@ -61,6 +67,28 @@ public class JpaTransactionRepository implements TransactionRepository {
     public List<ListByCategory> ListGroupByCategoryByUserId() {
         UUID userId = authenticatedUserProvider.getCurrentUserId();
         return transactionEntityRepository.ListGroupByCategoryByUserId(userId);
+    }
+
+    @Override
+    public int deleteByParameters(
+            //UUID userId,
+            Category category,
+            Subcategory subcategory,
+            BigDecimal amount,
+            LocalDate date,
+            LocalDate paymentDate,
+            PaymentMethod paymentMethod,
+            PaymentBrand paymentBrand) {
+        return transactionEntityRepository.deleteByFilters(
+                authenticatedUserProvider.getCurrentUserId(),
+                category,
+                subcategory,
+                amount,
+                date,
+                paymentDate,
+                paymentMethod,
+                paymentBrand);
+
     }
 
 

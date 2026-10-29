@@ -6,6 +6,7 @@ import lombok.Getter;
 public enum PaymentBrand {
     DINHEIRO(PaymentMethod.DINHEIRO,0,0),
     SANTANDER(PaymentMethod.DÉBITO_PIX,0,0),
+    ITAU(PaymentMethod.DÉBITO_PIX,0,0),
     BB(PaymentMethod.DÉBITO_PIX,0,0),
     CEF(PaymentMethod.DÉBITO_PIX,0,0),
     VISA(PaymentMethod.CRÉDITO,25,5),

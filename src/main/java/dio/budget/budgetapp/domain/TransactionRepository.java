@@ -2,6 +2,8 @@ package dio.budget.budgetapp.domain;
 
 import dio.budget.budgetapp.infrastructure.http.response.ListByCategory;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface TransactionRepository {
@@ -14,4 +16,14 @@ public interface TransactionRepository {
     List<Transaction> findByCategory(Category category);
 
     List<ListByCategory> ListGroupByCategoryByUserId();
+
+    int deleteByParameters(
+            Category category,
+            Subcategory subcategory,
+            BigDecimal amount,
+            LocalDate date,
+            LocalDate paymentDate,
+            PaymentMethod paymentMethod,
+            PaymentBrand paymentBrand
+    );
 }
